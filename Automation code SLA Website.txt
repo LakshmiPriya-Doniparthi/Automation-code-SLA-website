@@ -1,0 +1,42 @@
+package AllTestCases;
+
+import org.openqa.selenium.By;
+//import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+//import org.openqa.selenium.WebElement;
+//import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+
+public class project {
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","D:\\Driver\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.get("https://www.slainstitute.com/");
+		driver.manage().window().maximize();
+		Actions action=new Actions(driver);
+		action.moveToElement(driver.findElement(By.xpath("//span[@class='toggle-sub-menu']"))).build().perform();
+		Thread.sleep(1000);
+	   action.moveToElement(driver.findElement(By.linkText("Software Testing"))).build().perform();
+	   Thread.sleep(2000);
+	   action.moveToElement(driver.findElement(By.partialLinkText("Software Testing"))).click().perform();
+	   Thread.sleep(2000);
+	   action.moveToElement(driver.findElement(By.linkText("Contact"))).click().perform();
+	   Thread.sleep(2000);
+	   System.out.println(driver.findElement(By.xpath("//h1[@class='heading-primary elementor-heading-title']")).getText());
+	   System.out.println(driver.findElement(By.xpath("//h3[normalize-space()='SLA Institute']")).getText());
+	   System.out.println(driver.findElement(By.xpath("//div[@class='description-wrap']//div[1]")).getText());
+	   Thread.sleep(2000);
+	   System.out.println(driver.findElement(By.xpath("//h3[normalize-space()='Softlogic Systems']")).getText());
+	   System.out.println(driver.findElement(By.xpath("//div[@class='description-wrap']//div[1]")).getText());
+	   Thread.sleep(2000);
+	   System.out.println(driver.findElement(By.xpath("//h3[normalize-space()='Hours of Operation']")).getText());
+	   System.out.println(driver.findElement(By.xpath("//div[@class='description']")).getText());
+	   Thread.sleep(2000);
+	System.out.println(driver.findElement(By.xpath("//*[@id=\"page\"]/div[2]/div/div[4]/div/p[1]")).getText());
+	System.out.println(driver.findElement(By.xpath("//*[@id=\"page\"]/div[2]/div/div[4]/div/p[3]")).getText());
+	 
+	}
+
+}
